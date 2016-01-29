@@ -1,0 +1,20 @@
+[user]
+	name = Eric Chen
+	email = eric87chen@gmail.com
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/ericchen/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	sla = log --oneline --decorate --graph --all
+	slac = log --pretty=format:\"%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s\"
+	glog = log -E -i --grep
+        unstage = reset
+        uncommit = reset --soft HEAD^
+        stashall = stash -u
+
