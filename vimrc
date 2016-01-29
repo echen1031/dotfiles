@@ -11,6 +11,9 @@ set noswapfile
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" writing to file ignores capitalization
+command! W write
+
 " edit vim rc shortcut
 nmap <leader>,v :edit $MYVIMRC<cr>
 
@@ -26,7 +29,6 @@ Bundle 'tpope/vim-surround'
 
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
-Bundle 'christoomey/vim-tmux-navigator'
 
 
 Bundle 'Lokaltog/vim-easymotion'
@@ -43,6 +45,10 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'pdbradley/vim-tmux-runner'
+"Bundle 'christoomey/vim-tmux-runner'
+
 set runtimepath+=~/.vim/bundle/vim-snippets
 
 "fakeclip settings
@@ -57,7 +63,12 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
+
+"let g:rspec_command = 'VtrSendCommandToRunner bundle exec spring rspec {spec}\n'
 let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
+let g:VtrOrientation = "h"
+let g:VtrPercentage = 50
+let g:VtrClearOnReattach = 0
 
 "disable folding by default
 set nofoldenable
@@ -185,6 +196,10 @@ nnoremap <leader>h <C-w>s<C-w>j
 "get to Ack quickly with leader a
 nnoremap <leader>a :Ack
 
+"resize panels quickly with leader a
+nnoremap <leader>r :resize 10
+nnoremap <leader>rv :vertical resize 25
+
 "use ag instead of ack with ack.vim; -i means case insensitive
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
@@ -204,6 +219,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+
+let g:tmux_navigator_command = $TMUX_COMMAND
 
 au BufReadPost *.dwt set syntax=html
 
