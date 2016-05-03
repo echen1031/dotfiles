@@ -48,6 +48,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'pdbradley/vim-tmux-runner'
 "Bundle 'christoomey/vim-tmux-runner'
+Bundle 'danro/rename.vim'
 
 set runtimepath+=~/.vim/bundle/vim-snippets
 
