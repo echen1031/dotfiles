@@ -201,6 +201,10 @@ nnoremap <leader>a :Ack
 nnoremap <leader>r :resize 10
 nnoremap <leader>rv :vertical resize 25
 
+"toggle between insert paste mode
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+"set pastetoggle=<leader>p
+
 "use ag instead of ack with ack.vim; -i means case insensitive
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
@@ -225,4 +229,7 @@ nnoremap <C-l> <C-w>l
 let g:tmux_navigator_command = $TMUX_COMMAND
 
 au BufReadPost *.dwt set syntax=html
+
+"reload vim after save
+au! BufWritePost .vimrc source %
 
